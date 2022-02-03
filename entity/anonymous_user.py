@@ -1,6 +1,6 @@
-from entity.person import Person
+from entity.user import User
 
-class AnonymousUser(Person):
+class AnonymousUser(User):
 
     """Child class Anonymous user for one of users in the online system"""
 
@@ -11,9 +11,9 @@ class AnonymousUser(Person):
         cls.next_id += 1
         return cls.next_id
 
-    def __init__(self, first_name: str, second_name: str, last_name: str, age: int, gender: str, email: str,
-                 telephone_number: int, profession: str, interests: tuple):
-        super().__init__(first_name, second_name, last_name, age, gender, email, telephone_number)
+    def __init__(self, first_name: str, second_name: str, last_name: str, username: str, password: str, age: int,
+                 gender: str, email: str, telephone_number: int, profession: str, interests: tuple):
+        super().__init__(first_name, second_name, last_name, username, password, age, gender, email, telephone_number)
         self.teacher_id = self.__class__.get_next_id()
         self.profession = profession
         self.interests = interests
